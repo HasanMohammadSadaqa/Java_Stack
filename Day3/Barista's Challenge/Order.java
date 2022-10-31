@@ -15,6 +15,7 @@ public class Order{
     //Overloaded Constructor: 
     public Order(String name){
         this.name = name;
+        this.items = new ArrayList<Item>();
     }
 
     //Mutators(Setters)
@@ -41,8 +42,8 @@ public class Order{
 
     //Methods
     //addItem Method
-    public void addItem(Item item1){
-        this.items.add(item1);
+    public void addItem(Item item){
+        this.items.add(item);
     }
     //getStatusMessage Method
     public void getStatusMessage(){
