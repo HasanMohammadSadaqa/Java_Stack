@@ -40,5 +40,34 @@ public class Order{
     }
 
     //Methods
+    //addItem Method
+    public void addItem(Item item1){
+        this.items.add(item1);
+    }
+    //getStatusMessage Method
+    public void getStatusMessage(){
+        if (this.ready == true){
+            System.out.println("Your order is ready!");
+        }
+        else{
+            System.out.println("Thank you for waiting, your order will be ready soon!");
+        }
+    }
+    //display method
+    public void display() {
+        System.out.printf("Customer Name: %s \n",this.name);
+        for(int i = 0; i<items.size(); i++){
+            System.out.println(items.get(i).getName() + " - " + items.get(i).getPrice());
+        }
+        System.out.println("Total: " + getOrderTotal());
+    }
+    //getOrderTotal Method
+    public double getOrderTotal(){
+        double sum = 0.0;
+        for(int i = 0; i<items.size(); i++){
+            sum+= items.get(i).getPrice();
+        }
+        return sum;
+    }
 
 }
