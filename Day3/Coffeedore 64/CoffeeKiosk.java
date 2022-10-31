@@ -48,12 +48,18 @@ public class CoffeeKiosk{
     public void newOrder(){
         System.out.println("Please enter customer name for new order:");
         String name = System.console().readLine();
+        Order order = new Order(name);
+        this.orders.add(order);
+        displayMenu();
 
         System.out.println("Please enter a menu item index or q to quit:");
         String itemNumber = System.console().readLine();
-
         while(!itemNumber.equals("q")) {
-            
+            Item item = this.menu.get(Integer.parseInt(itemNumber));
+            order.addItem(item);
+            System.out.println("Enter another menu item index or q to quit:");
+            itemNumber = System.console().readLine();
         }
+        order.display();
     }
 }
