@@ -14,7 +14,7 @@ public class Item {
         this.price = P;
     }
 
-    public void setIndes(Integer index) {
+    public void setIndex(int index) {
         this.index = index;
     }
     // getter
