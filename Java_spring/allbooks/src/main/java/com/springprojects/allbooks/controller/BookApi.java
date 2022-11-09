@@ -2,6 +2,7 @@ package com.springprojects.allbooks.controller;
 
 import java.util.List;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,8 +36,8 @@ public class BookApi {
 	    }
 	    
 	    @RequestMapping(value="/api/books/{id}", method=RequestMethod.PUT)
-	    public Book update(@PathVariable("id") Long id, @RequestParam(value="title") String title, @RequestParam(value="description") String desc, @RequestParam(value="language") String lang, @RequestParam(value="pages") Integer numOfPages) {
-	        Book book = bookService.updateBook(id, title, desc, lang, numOfPages);
+	    public Book update(@PathVariable("id") Long id, @RequestParam(value="title") String title, @RequestParam(value="description") String desc, @RequestParam(value="language") String language, @RequestParam(value="pages") Integer numOfPages) {
+	        Book book = bookService.updateBook(id, title, desc, language, numOfPages);
 	        return book;
 	    }
 	    
@@ -44,6 +45,42 @@ public class BookApi {
 	    public void destroy(@PathVariable("id") Long id) {
 	        bookService.deleteBook(id);
 	    }
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	  
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
 }
 
 

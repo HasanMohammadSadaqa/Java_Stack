@@ -32,10 +32,10 @@ public class BookService {
 	        }
 	    }
 	    
-	    public Book updateBook(Long id, String title, String desc, String lang, Integer numOfPages) {
+	    public Book updateBook(Long id, String title, String desc, String language, Integer numOfPages) {
 	        Book book = bookRepository.findById(id).get();
 	        book.setTitle(title);
-	        book.setLanguage(lang);
+	        book.setLanguage(language);
 	        book.setDescription(desc);
 	        book.setNumberOfPages(numOfPages);
 	        return bookRepository.save(book);
@@ -43,5 +43,8 @@ public class BookService {
 	    
 	    public void deleteBook(Long id) {
 	        bookRepository.deleteById(id);
-	       }
+//	        Optional<Book> optionalBook = bookRepository.findById(id);
+//	        if(optionalBook.isPresent()) {
+//	            return optionalBook.deleteById(id);
+	        }
 }
