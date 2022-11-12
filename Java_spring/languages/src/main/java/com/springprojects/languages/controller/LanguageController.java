@@ -10,7 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.springprojects.languages.models.Language;
 import com.springprojects.languages.services.LanguageService;
@@ -45,5 +48,37 @@ public class LanguageController {
 			return "redirect:/languages";
 		}
 	}
+	//second page which is editing language
+	//method to render edit page
+	@GetMapping("/languages/edit/{id}")
+	public String editPage(@PathVariable("id") Long id, Model model) {
+		Language language = languageService.findLanguage(id);
+		model.addAttribute("updatedlanguage", language);
+		return "editPage.jsp";
+	}
+	//method to edit 
+	@PutMapping("/langauges/edit/{id}")
+	public String editLanguage(@Valid @ModelAttribute("updatedlanguage") Language updatedLanguage, BindingResult result) {
+		if(result.hasErrors()) {
+			return "editPage.jsp";
+		}else {
+			languageService.updateLanguage(updatedLanguage);
+			return "redirect:/";
+		}
+	}
 	
+	//method to delete 
+	@RequestMapping("/delete/{id}")
+	public String deleteLanguage(@PathVariable("id") Long id) {
+		languageService.deleteLanguage(id);
+		return "redirect:/languages";
+	}
+	
+	//method to show the language its self
+	@GetMapping("/languages/{id}")
+	public String view(@PathVariable("id") Long id, Model model) {
+		Language theLanguage = languageService.findLanguage(id);
+		model.addAttribute("theLanguage", theLanguage);
+		return "view.jsp";
+	}
 }

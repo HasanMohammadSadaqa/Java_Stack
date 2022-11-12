@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
 </head>
 <body>
+	<h1>This is all languages</h1>
 	<table class="table table-striped">
 	  <thead>
 	    <tr>
@@ -24,14 +25,18 @@
 	  <tbody>
 	  <c:forEach var="language" items="${allLanguages}">
 	    <tr>
-	      <td> ${language.name} </td>
+	      <td scope="row"><a href="/languages/${language.id}">${language.name}</a> </td>
 	      <td>${language.creator}</td>
 	      <td>${language.version}</td>
-	      <td><a href="/">Delete </a> | <a href="/">Edit </a></td>
+	      <td><a href="/delete/${language.id}">Delete </a> | <a href="/languages/edit/${language.id}">Edit </a></td>
 	    </tr>
 	    </c:forEach>
 	  </tbody>
 	</table>
+	<br>
+	<br>
+	<br>
+	<h1>Please add a new language:</h1>
 	<form:form action="/languages" method="post" modelAttribute ="newLanguage">
 	<div class="form-group">
 		<form:label path="name">Name:</form:label>
@@ -44,7 +49,7 @@
 		<form:input path="creator" class="form-control"/>
 	</div>
 	<div class="form-group">
-		<form:label path="Version">Versoin:</form:label>
+		<form:label path="Version">Version:</form:label>
 		<form:errors path="Version"/>
 		<form:input path="Version" class="form-control"/>
 	</div>

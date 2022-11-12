@@ -38,4 +38,8 @@ public class LanguageService {
 	public void deleteLanguage(Long id) {
 		languageRepository.deleteById(id);
 	}
+	//method to update language
+	public void updateLanguage(Language language) {
+		languageRepository.save(language);
+	}
 }
