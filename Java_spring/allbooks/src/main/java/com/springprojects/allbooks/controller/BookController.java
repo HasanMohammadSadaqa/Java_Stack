@@ -1,5 +1,7 @@
 package com.springprojects.allbooks.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,5 +22,12 @@ public class BookController {
 		
 		model.addAttribute("book", book);
 		return "BookInformation.jsp";
+	}
+	
+	@GetMapping("/books")
+	public String allBook(Model model) {
+		List<Book> books = bookService.allBooks(); 
+		model.addAttribute("books", books);
+		return "AllBook.jsp";
 	}
 }
