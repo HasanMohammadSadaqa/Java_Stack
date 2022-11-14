@@ -21,7 +21,7 @@
 		<div class="form-group">
 			<form:label path="name">Name:</form:label>
 			<form:errors path="name"></form:errors>
-			<form:input path="name" class="form-control"/>
+			<form:input path="name" type="text" class="form-control"/>
 		</div>
 		<div class="form-group">
 			<form:label path="creator">Creator:</form:label>
@@ -35,5 +35,6 @@
 		</div>
 	<button type="submit" class="btn btn-primary">Update</button>
 	</form:form>
+
 </body>
 </html>
