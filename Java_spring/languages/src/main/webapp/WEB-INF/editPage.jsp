@@ -17,7 +17,8 @@
 		<a href="/">Dashboard </a>
 		<a href="/delete/${updatedlanguage.id}">Delete</a>
 	</div>
-	<form:form action="/languages/edit/${updatedlanguage.id}" method="put" modelAttribute="updatedlanguage">
+	<form:form action="/languages/edit/${updatedlanguage.id}" method="post" modelAttribute="updatedlanguage">
+	
 		<div class="form-group">
 			<form:label path="name">Name:</form:label>
 			<form:errors path="name"></form:errors>
@@ -33,6 +34,7 @@
 			<form:errors path="Version"/>
 			<form:input path="Version" class="form-control"/>
 		</div>
+		
 	<button type="submit" class="btn btn-primary">Update</button>
 	</form:form>
 
